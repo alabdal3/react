@@ -2,9 +2,13 @@ import { useState } from 'react'
 import reactLogo from './assets/headshot.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Dolist from './dolist'
+import Message from './message'
+import Quote from './Quote'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [showSecret, setShowSecret] = useState(false)
 
   return (
     <>
@@ -19,12 +23,18 @@ function App() {
       <h1>Ibrahim Is Awesome</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 2)}>
-          count is {count}
+          count is {count} Awesome
         </button>
-        <p>
-          Yup Ibrahim Is Still Awesome
-        </p>
       </div>
+      <div className="card">
+        <button onClick={() => setShowSecret(!showSecret)}>
+          Click me to see the secret message
+        </button>
+        <Message showMessage={showSecret} />
+      </div>
+      <Quote />
+      <Dolist />
+
       <p className="read-the-docs">
         You guessed it.... Ibrahim Is Still Awesome
       </p>
